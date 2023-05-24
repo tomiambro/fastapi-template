@@ -1,0 +1,7 @@
+cookiecutter-config-file.yml
+.env
+/vue/node_modules/
+*__pycache__*
+*.DS_Store*
+.coverage
+celerybeat-schedule
