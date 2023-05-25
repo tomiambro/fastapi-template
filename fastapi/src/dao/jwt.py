@@ -1,7 +1,6 @@
 from models import JWT as JWTModel
 from schemas.jwt import JWT, JWTCreate, JWTUpdate
 from settings import logger_for
-from sqlalchemy.orm import Session
 
 from .general import DAO
 

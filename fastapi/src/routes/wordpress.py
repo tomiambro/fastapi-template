@@ -1,4 +1,5 @@
 from typing import Dict
+
 import requests
 import schemas
 from constants import TEST_ROUTE
@@ -7,7 +8,6 @@ from db import conn
 from requests.auth import HTTPBasicAuth
 from settings import logger_for
 from sqlalchemy.orm import Session
-
 
 from fastapi import APIRouter, Depends, HTTPException
 
@@ -22,7 +22,7 @@ router = APIRouter(prefix="/api/v1")
 def retrieve(
     record_id: int,
     db: Session = Depends(conn),
-    token: Dict = Depends(token_in_header),
+    token: str = Depends(token_in_header),
 ):
     decoded = decode_token(token)
     try:
@@ -50,7 +50,7 @@ def editor(
     record_id: int,
     data: schemas.WordpressUpdate,
     db: Session = Depends(conn),
-    token: Dict = Depends(token_in_header),
+    token: str = Depends(token_in_header),
 ):
     decoded = decode_token(token)
     record = wordpress_dao.get_by_field(db, field="id", value=record_id)
@@ -75,7 +75,7 @@ def editor(
 def deleted(
     record_id: int,
     db: Session = Depends(conn),
-    token: Dict = Depends(token_in_header),
+    token: str = Depends(token_in_header),
 ):
     decoded = decode_token(token)
     try:
@@ -95,10 +95,10 @@ def deleted(
 
 # Proof of concept method; talks to the Wordpress installation using provided credentials
 @router.get("/wordpress/connect/{record_id}")
-def retrieve(
+def retrieve_blog(
     record_id: int,
     db: Session = Depends(conn),
-    token: Dict = Depends(token_in_header),
+    token: str = Depends(token_in_header),
 ):
     decoded = decode_token(token)
     record = None
@@ -118,6 +118,7 @@ def retrieve(
             )
     except Exception as e:
         logger.error(e)
+        raise e
 
     username = record.api_credentials["site_api_key"]
     password = record.api_credentials["site_api_password"]
