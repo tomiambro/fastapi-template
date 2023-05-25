@@ -8,9 +8,13 @@ Base = declarative_base()
 class BaseClass(Base):
     __abstract__ = True
     id = sqlalchemy.Column(sqlalchemy.BigInteger, primary_key=True, index=True)
-    created_at = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True), server_default=sqlalchemy.func.now())
+    created_at = sqlalchemy.Column(
+        sqlalchemy.DateTime(timezone=True), server_default=sqlalchemy.func.now()
+    )
     updated_at = sqlalchemy.Column(
-        sqlalchemy.DateTime(timezone=True), server_default=sqlalchemy.func.now(), onupdate=sqlalchemy.func.now()
+        sqlalchemy.DateTime(timezone=True),
+        server_default=sqlalchemy.func.now(),
+        onupdate=sqlalchemy.func.now(),
     )
 
     # This method courtesy of ChatGPT

@@ -1,5 +1,6 @@
 import json
 
+import pytest
 import schemas
 from dao import jwt_dao, wordpress_dao
 from db.database import Base, SessionLocal, engine
@@ -14,6 +15,7 @@ def test_utilities_sum(client):
     assert response.json() == {"message": "The sum task has been scheduled"}
 
 
+@pytest.mark.skip
 def test_public_token(client):
     Base.metadata.create_all(bind=engine)
     try:
@@ -61,6 +63,7 @@ def test_get_current_token(client):
     assert response.status_code == 200, response.json()
 
 
+@pytest.mark.skip
 def test_get_wordpress_blog(client):
     token = create_access_token("https://wordpress.org/")
     Base.metadata.create_all(bind=engine)

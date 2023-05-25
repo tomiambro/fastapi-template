@@ -1,3 +1,3 @@
 from .jwt import JWT, JWTCreate, JWTUpdate
-from .random import Random
+from .users import User, UserCreate, UserUpdate
 from .wordpress import Wordpress, WordpressCreate, WordpressUpdate

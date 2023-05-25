@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "bullpen-api"
+name = "fastapi-template"
 version = "0.1.0"
-description = "The API for Bullpen AI"
+description = "The API"
 authors = ["Kaizen Software <hello@kaizen.software>"]
 license = "Proprietary"
 readme = "README.md"
@@ -33,6 +33,7 @@ mypy = "^1.2.0"
 coverage = "^7.2.5"
 httpx = "^0.24.0"
 celery-stubs = "^0.1.3"
+types-requests = "^2.31.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
