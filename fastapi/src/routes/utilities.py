@@ -1,5 +1,5 @@
 from settings import logger_for
-from worker.tasks import multiply, sum
+from worker.tasks import sum
 
 from fastapi import APIRouter
 
@@ -12,9 +12,3 @@ router = APIRouter(prefix="/api/v1/utilities")
 def sum_operation(a: int, b: int):
     sum.delay(a, b)
     return {"message": "The sum task has been scheduled"}
-
-
-@router.post("/multiply")
-def mutiply_operation(a: int, b: int):
-    multiply.delay(a, b)
-    return {"message": "The multiply task has been scheduled"}
