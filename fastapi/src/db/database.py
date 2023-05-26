@@ -1,8 +1,7 @@
+from models.base_class import Base
 from settings.config import data
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
-from models.base_class import Base
-
 
 SQLALCHEMY_DATABASE_URL = data["postgres_url"]
 

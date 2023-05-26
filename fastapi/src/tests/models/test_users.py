@@ -1,18 +1,11 @@
-import json
-import pytest
 import schemas
 from dao import user_dao
-from db.database import Base, SessionLocal, engine
-from settings.config import data
 from utilities.jwt_token import get_hashed_password
 
 
 class TestUserModel:
     def test_create_user(self, db):
-        # Base.metadata.create_all(bind=db_engine)
         try:
-            # db = SessionLocal()
-
             user_data = schemas.UserCreate(
                 name="tomas",
                 email="tomas@example.com",
