@@ -59,6 +59,21 @@ def client(db):
 
 
 @pytest.fixture(scope="function")
+def headers(client):
+    # Define the login credentials
+    username = "tomas@example.com"
+    password = "1234"
+
+    # Prepare the request payload with the login form data
+    payload = {"username": username, "password": password}
+
+    # Send the POST request to the login endpoint
+    response = client.post("/users/login", data=payload)
+    assert response.status_code == 200
+    return {"Authorization": f"Bearer {response.json()['access_token']}"}
+
+
+@pytest.fixture(scope="function")
 def user(db):
     user_data = schemas.UserCreate(
         name="tomas",
