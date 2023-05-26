@@ -29,6 +29,7 @@ data = {
     "hash_value": dot_env["HASH_VALUE"],
     "maintenance_mode": dot_env["MAINTENANCE_MODE"] == "True",
     "postgres_url": f"postgresql+psycopg2://{dot_env['POSTGRES_USER']}:{dot_env['POSTGRES_PASSWORD']}@{dot_env['POSTGRES_SERVER']}:{dot_env['POSTGRES_PORT']}/{dot_env['POSTGRES_DB']}",
+    "postgres_test_url": f"postgresql+psycopg2://{dot_env['POSTGRES_USER']}:{dot_env['POSTGRES_PASSWORD']}@{dot_env['POSTGRES_SERVER']}:{dot_env['POSTGRES_PORT']}/test",
     "rabbit_mq_password": dot_env["RABBITMQ_DEFAULT_PASS"],
     "rabbit_mq_user": dot_env["RABBITMQ_DEFAULT_USER"],
     "sendgrid_api_key": dot_env["SENDGRID_API_KEY"],

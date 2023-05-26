@@ -10,10 +10,3 @@ def sum(x, y):
     r = x + y
     logger.info(f"Sum result: {r}")
     return r
-
-
-@app.task
-def multiply(a, b):
-    r = a * b
-    logger.info(f"Multiplication result: {r}")
-    return r

@@ -1,7 +1,7 @@
+import pytest
 from dao import user_dao
 from db.database import Base, SessionLocal, engine
 from utilities.jwt_token import verify_password
-
 
 def test_me_endpoint(client):
     Base.metadata.create_all(bind=engine)

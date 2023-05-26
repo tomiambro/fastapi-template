@@ -1,11 +1,7 @@
-from typing import Annotated
-from uuid import uuid4
-
 from dao import user_dao
 from db import conn
-from fastapi.responses import JSONResponse, RedirectResponse
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from schemas import JWT, User, UserCreate
+from fastapi.security import OAuth2PasswordRequestForm
+from schemas import User, UserCreate
 from sqlalchemy.orm import Session
 from utilities import create_access_token, get_hashed_password, verify_password
 
