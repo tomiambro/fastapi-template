@@ -1,4 +1,6 @@
 import pytest
+import schemas
+from dao import user_dao
 from db import conn
 from models import User
 from models.base_class import Base
@@ -7,6 +9,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 from sqlalchemy_utils import create_database, database_exists
 from starlette.testclient import TestClient
+from utilities import get_hashed_password
 
 from .main import app
 
@@ -44,5 +47,22 @@ def db(db_engine):
 def client(db):
     app.dependency_overrides[conn] = lambda: db
 
+    user_data = schemas.UserCreate(
+        name="tomas",
+        email="tomas@example.com",
+        hashed_password=get_hashed_password("1234"),
+    )
+    user_dao.create(db, user_data)
+
     with TestClient(app) as client:
         yield client
+
+
+@pytest.fixture(scope="function")
+def user(db):
+    user_data = schemas.UserCreate(
+        name="tomas",
+        email="tomas@example.com",
+        hashed_password=get_hashed_password("1234"),
+    )
+    return user_dao.create(db, user_data)

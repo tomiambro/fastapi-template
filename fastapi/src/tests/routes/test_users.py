@@ -1,13 +1,8 @@
-import pytest
 from dao import user_dao
-from db.database import Base, SessionLocal, engine
 from utilities.jwt_token import verify_password
 
 
-def test_me_endpoint(client):
-    Base.metadata.create_all(bind=engine)
-    db = SessionLocal()
-
+def test_me_endpoint(client, db):
     user = user_dao.get_by_field(db, "email", "tomas@example.com")
     assert user is not None
     assert user.name == "tomas"
