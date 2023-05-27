@@ -1,4 +1,4 @@
-# Bullpen API
+# API
 
 The Bullpen API is the application that powers Bullpen AI.
 
