@@ -1,3 +1,4 @@
+from typing import Optional
 from datetime import datetime
 
 from dao import user_dao
@@ -67,7 +68,7 @@ def decode_token(token: str):
 
 
 def token_in_header(request: Request) -> str:
-    authorization: str = request.headers.get("Authorization")
+    authorization: Optional[str] = request.headers.get("Authorization")
     if not authorization:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN, detail="Not authenticated"
