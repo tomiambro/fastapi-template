@@ -10,6 +10,11 @@ The stack:
 
 On development, you can launch the application with Docker.
 
+### Start/create a new vue project
+`npm init vue@latest`
+If you won't be using a frontend disable it from nginx and docker-compose.yml files.
+
+
 1. Copy .env.example to .env and populate all values with the necessary values.
 2. Update your hosts file:
   - `sudo nano /etc/hosts`
