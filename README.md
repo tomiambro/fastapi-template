@@ -1,7 +1,5 @@
 # API
 
-The Bullpen API is the application that powers Bullpen AI.
-
 The stack:
  - Nginx
  - FastAPI (python 3.11)
@@ -15,11 +13,11 @@ On development, you can launch the application with Docker.
 1. Copy .env.example to .env and populate all values with the necessary values.
 2. Update your hosts file:
   - `sudo nano /etc/hosts`
-  - Add the line: `127.0.0.1   bullpen.local`
-  - Add the line: `127.0.0.1   api.bullpen.local`
+  - Add the line: `127.0.0.1   fastapi_template.local`
+  - Add the line: `127.0.0.1   api.fastapi_template.local`
 3. Launch the application: `docker-compose up -d`
 
-After it launches, you can access the Vue site at http://bullpen.local/. The API can be referenced at http://bullpen.local/api/v1/
+After it launches, you can access the Vue site at http://fastapi_template.local/. The API can be referenced at http://fastapi_template.local/api/v1/
 
 ## Deployment
 
