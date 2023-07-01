@@ -10,7 +10,7 @@ readme = "README.md"
 python = "^3.11"
 fastapi = "^0.95.2"
 uvicorn = {extras = ["standard"], version = "^0.22.0"}
-celery = "^5.2.6"
+celery = "^5.3.1"
 python-dotenv = "^1.0.0"
 sqlalchemy = "^2.0.8"
 alembic = "^1.11.1"
